@@ -1,57 +1,5 @@
 #!/bin/bash
 
-## # google/clasp (GAS のローカル開発環境) のコンテナ構築を自動化するスクリプト
-##
-## ## 事前準備
-## - Docker をインストール
-##
-## ## スクリプトの処理内容
-## (ホストのターミナル)
-## 1. スクリプトを実行する
-##    $ sh init-clasp.sh (任意のプロジェクト名)
-##    1) 引数を使ってプロジェクトのフォルダをつくる
-##    2) docker-compose.yaml を生成する
-##    3) app フォルダをつくる
-##    4) app フォルダにDockerfile を生成する
-##    5) コンテナを起動する
-##
-## ## 開発手順 *コンテナ構築後
-## (Web ブラウザ)
-## 1. Google Workspace (旧 GSuite) にログインする
-## 2. Google Workspace の Apps Script 画面で設定を開き、Google Apps Script API を「オン」にする
-## 3. プロジェクトを作成する
-## (コンテナのターミナル)
-## 4. ログインする
-##   $ clasp login --no-localhost
-## 5. コードを GAS から取得する
-##   $ clasp clone (上記3. で作成したプロジェクトのプロジェクトID)
-## (エディタ)
-## 6. ソースコードを編集する *Typescript が使えるので、ファイルの拡張子は .ts にする
-## (コンテナ内のターミナル)
-## 7. コードを GAS へアップロードする
-##   $ clasp push
-## 8. コードを GAS から取得する
-##   $ clasp pull
-## 9. ログアウトする (次回は再ログインして開発を継続すること)
-##   $ clasp logout
-##
-## ## ホストのフォルダ構成
-## (プロジェクト名)/
-##   docker-compose.yaml
-##   app/
-##     Dockerfile
-##     package.json
-##     package-lock.json
-##     src/
-##
-## ## コンテナ内のフォルダ構成
-## /work
-##   package.json
-##   package-lock.json
-##   node_modules/
-##
-## ## 補足
-
 ## 引数をチェックする
 if [ ! $# = 1 ]; then
   echo "Usage: sh init-clasp.sh {project name}"
