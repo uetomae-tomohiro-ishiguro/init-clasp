@@ -2,41 +2,42 @@
 
 ## 事前準備
 
-- Docker をインストール
+- Docker をインストールする
+- Google Workspace の Apps Script 画面で設定を開き、Google Apps Script API を「オン」にする (初めて GAS で開発する時のみ)
+- 
 
 ## スクリプトの処理内容
 
 (ホストのターミナル)
 
-1. スクリプトを実行する
+1. スクリプトを実行する  
    `$ sh init-clasp.sh (任意のプロジェクト名)`
 
 ## 開発手順 *コンテナ構築後
 
-1. (Web ブラウザ)
+1. コンテナに
 
-    1. Google Workspace (旧 GSuite) にログインする
-    2. Google Workspace の Apps Script 画面で設定を開き、Google Apps Script API を「オン」にする
-    3. プロジェクトを作成する
+    1. `$ winpty docker exec -it (任意のプロジェクト名)_app bash`
 
 2. (コンテナのターミナル)
 
-    4. ログインする
+    2. Google Workspace にログインする  
       `$ clasp login --no-localhost`
-    5. コードを GAS から取得する
-      `$ clasp clone (上記3. で作成したプロジェクトのプロジェクトID)`
+    3. ソースコードを GAS から取得する  
+      `$ clasp clone (作成したプロジェクトのプロジェクトID)`
 
 3. (エディタ)
 
-    6. ソースコードを編集する *Typescript が使えるので、ファイルの拡張子は .ts にする
+    4. ソースコードを編集する  
+       *Typescript が使えるので、ファイルの拡張子は .ts にする
 
 4. (コンテナ内のターミナル)
 
-    7. コードを GAS へアップロードする
+    5. 編集したソースコードを GAS へアップロードする  
       `$ clasp push`
-    8. コードを GAS から取得する
+    6. 最新のソースコードを GAS から取得する  
       `$ clasp pull`
-    9. ログアウトする (次回は再ログインして開発を継続すること)
+    7. Google Workspace からログアウトする (次回は再ログインして開発を継続すること)  
       `$ clasp logout`
 
 ## ホストのフォルダ構成
@@ -46,8 +47,6 @@
   docker-compose.yaml
   app/
     Dockerfile
-    package.json
-    package-lock.json
     src/
 ```
 
