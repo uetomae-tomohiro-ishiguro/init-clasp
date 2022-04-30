@@ -48,13 +48,14 @@ cd src
 docker-compose up -d
 
 ## 6. Google Workspace にログインする
-echo "> # next to do"
-echo "> $ cd ${PROJECT_NAME}_clasp"
-echo "> $ docker-compose exec ${PROJECT_NAME}_app bash -c 'clasp login --no-localhost'"
-echo "> $ docker-compose exec ${PROJECT_NAME}_app bash -c 'npm init -y'"
+echo "## next to do"
+echo "$ cd ${PROJECT_NAME}_clasp"
+echo "$ winpty docker exec -it ${PROJECT_NAME}_app bash"
+echo "  # npm init -y"
+echo "  # clasp login --no-localhost"
 
 ## 7. プロジェクトを生成
-echo "> # 既存のプロジェクトを取得する場合"
-echo "> $ docker-compose exec ${PROJECT_NAME}_app bash -c 'clasp clone {project id}"
-echo "> # 新しいプロジェクトを作成する場合"
-echo "> $ docker-compose exec ${PROJECT_NAME}_app bash -c 'clasp create --title ${PROJECT_NAME}'"
+echo "## 既存のプロジェクトを取得する場合"
+echo "  # clasp clone {project id}"
+echo "## 新しいプロジェクトを作成する場合"
+echo "  # clasp create --title ${PROJECT_NAME}"
