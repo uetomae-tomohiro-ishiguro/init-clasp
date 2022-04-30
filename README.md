@@ -35,7 +35,7 @@
     7. コードを GAS へアップロードする
       `$ clasp push`
     8. コードを GAS から取得する
-      `$ clasp pulli`
+      `$ clasp pull`
     9. ログアウトする (次回は再ログインして開発を継続すること)
       `$ clasp logout`
 
