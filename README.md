@@ -4,7 +4,6 @@
 
 - Docker をインストールする
 - Google Workspace の Apps Script 画面で設定を開き、Google Apps Script API を「オン」にする (初めて GAS で開発する時のみ)
-- 
 
 ## スクリプトの処理内容
 
@@ -15,25 +14,25 @@
 
 ## 開発手順 *コンテナ構築後
 
-1. コンテナに
+1. コンテナに接続する (ホストのターミナル)
 
     1. `$ winpty docker exec -it (任意のプロジェクト名)_app bash`
 
-2. (コンテナのターミナル)
+2. ソースコードを取得する (コンテナのターミナル)
 
     2. Google Workspace にログインする  
       `$ clasp login --no-localhost`
     3. ソースコードを GAS から取得する  
       `$ clasp clone (作成したプロジェクトのプロジェクトID)`
 
-3. (エディタ)
+3. ソースコードを編集する (エディタ)
 
     4. ソースコードを編集する  
        *Typescript が使えるので、ファイルの拡張子は .ts にする
 
-4. (コンテナ内のターミナル)
+4. ソースコードを GAS エディタへ反映する (コンテナ内のターミナル)
 
-    5. 編集したソースコードを GAS へアップロードする  
+    5. 編集したソースコードを GAS へ反映 (アップロード) する  
       `$ clasp push`
     6. 最新のソースコードを GAS から取得する  
       `$ clasp pull`
@@ -55,6 +54,4 @@
 ```
 /work
   package.json
-  package-lock.json
-  node_modules/
 ```
